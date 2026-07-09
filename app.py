@@ -297,9 +297,9 @@ st.download_button(
 st.subheader("🔍 Detalhar alunos por Competência e Nota")
 col1, col2 = st.columns(2)
 with col1:
-    competencia_sel = st.selectbox("📘 Selecione a competência:", sorted(df_long['Competência'].unique()))
+    competencia_sel = st.selectbox("📘 Selecione a competência:", sorted(df_long['Competência'].dropna().astype(str).unique()))
 with col2:
-    nota_sel = st.selectbox("🏷️ Selecione a nota:", sorted(df_long['Nota'].unique()))
+    nota_sel = st.selectbox("🏷️ Selecione a nota:", sorted(df_long['Nota'].dropna().astype(str).unique()))
 
 detalhe = df_long[
     (df_long['Competência'] == competencia_sel) &
